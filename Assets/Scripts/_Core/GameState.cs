@@ -2,7 +2,10 @@
 {
     Intro,
     Menu,
-    Playing,
+    LevelStart,
+    Walking,
+    Acquaintance,
+    Encounter,
     Paused,
     Outro,
     Won,

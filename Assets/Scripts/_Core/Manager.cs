@@ -49,10 +49,10 @@ public class Manager : MonoBehaviour {
 
     public void SetGameState(GameState state)
     {
+        LastState = State;
         State = state;
         if (State != LastState)
         {
-            
             if(State == GameState.Credits)
             {
 
@@ -77,7 +77,26 @@ public class Manager : MonoBehaviour {
             {
 
             }
-            else if (State == GameState.Playing)
+            else if (State == GameState.LevelStart)
+            {
+
+            }
+            else if (State == GameState.Walking)
+            {
+                if (LastState == GameState.Acquaintance)
+                {
+                    StartCoroutine(ChangePhaseInSeconds(GameState.Encounter, 2f));
+                }
+                else
+                {
+                    StartCoroutine(ChangePhaseInSeconds(GameState.Acquaintance, 3f));
+                }
+            }
+            else if (State == GameState.Acquaintance)
+            {
+
+            }
+            else if (State == GameState.Encounter)
             {
 
             }
@@ -85,8 +104,14 @@ public class Manager : MonoBehaviour {
             {
 
             }
-            LastState = State;
+            
         }
+    }
+
+    IEnumerator ChangePhaseInSeconds(GameState state, float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        SetGameState(state);
     }
 
 }

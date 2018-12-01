@@ -6,6 +6,7 @@ using UnityEngine;
 public class Level
 {
     public string Name;
+    public string Intro;
     [SerializeField]
     private int EncounterCount;
     [SerializeField]
