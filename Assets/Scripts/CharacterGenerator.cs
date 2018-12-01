@@ -6,21 +6,28 @@ using System.IO;
 
 public class CharacterGenerator : MonoBehaviour {
 
-    public List<string> Names = new List<string>();
     [SerializeField]
+    private List<string> Names = new List<string>();
+    string path = "Assets/Resources/Names.txt";
+    
+    string text;
+
+    private void Start()
+    {
+        LoadNames();
+    }
+
+
     public void LoadNames()
     {
-
-    }
-
-    [MenuItem("Tools/Read file")]
-    static void ReadString()
-    {
-        string path = "Assets/Resources/Names.txt";
         StreamReader reader = new StreamReader(path);
-        Debug.Log(reader.ReadToEnd());
+        while ((text = reader.ReadLine()) != null)
+        {
+            Names.Add(text);
+        }
         reader.Close();
     }
+
 
 
     public void CreateCharacter()
