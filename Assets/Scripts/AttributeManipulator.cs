@@ -16,4 +16,14 @@ public class AttributeManipulator
         Value = value;
         Type = type;
     }
+
+    public AttributeType GetAttributeType()
+    {
+        return Type;
+    }
+
+    public int GetValue()
+    {
+        return Value;
+    }
 }

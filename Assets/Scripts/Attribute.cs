@@ -26,5 +26,15 @@ public class Attribute{
         Type = type;
         Name = Type.ToString();
     }
+
+    public int GetValue()
+    {
+        return Value;
+    }
+
+    public AttributeType GetAttributeType()
+    {
+        return Type;
+    }
 	
 }

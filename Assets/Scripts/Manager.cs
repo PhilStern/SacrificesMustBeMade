@@ -9,6 +9,17 @@ public class Manager : MonoBehaviour {
 
     public static Manager Instance { get { return _instance; } }
 
+    public GameState State;
+
+    [Header("Managers")]
+    public CharacterGenerator CGenerator;
+    public EncounterManager EManager;
+    public TeamManager TManager;
+
+    [Header("Character References")]
+    public List<Character> Characters = new List<Character>();
+    public List<Trait> Traits = new List<Trait>();
+    public List<Buff> Buffs = new List<Buff>();
 
     private void Awake()
     {
@@ -23,17 +34,12 @@ public class Manager : MonoBehaviour {
     }
 
 
-    public GameState State;
-    public CharacterGenerator CGenerator;
-    public List<Character> Characters = new List<Character>();
-    public List<Character> Team = new List<Character>();
-    public List<Trait> Traits = new List<Trait>();
-    public List<Buff> Buffs = new List<Buff>();
-
     public void Start()
     {
         //GenerateTeam
-        CGenerator.GenerateCharacters(3, CGenerator.TeamTransform, Team);
+        CGenerator.GenerateCharacters(3, CGenerator.TeamTransform, TManager.Team);
+        EManager.Initialize();
+        TManager.Initialize();
     }
 
 
