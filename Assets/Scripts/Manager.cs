@@ -22,11 +22,21 @@ public class Manager : MonoBehaviour {
         }
     }
 
+
     public GameState State;
     public CharacterGenerator CGenerator;
+    public List<Character> Characters = new List<Character>();
     public List<Character> Team = new List<Character>();
     public List<Trait> Traits = new List<Trait>();
     public List<Buff> Buffs = new List<Buff>();
+
+    public void Start()
+    {
+        //GenerateTeam
+        CGenerator.GenerateCharacters(3, CGenerator.TeamTransform, Team);
+    }
+
+
 
 
 }

@@ -6,17 +6,21 @@ using System.IO;
 
 public class CharacterGenerator : MonoBehaviour {
 
+
+    public Transform TeamTransform;
+    public Transform ChooseCharacterTransform;
+
+    [SerializeField]
+    private GameObject CharacterPrefab;
     [SerializeField]
     private List<string> Names = new List<string>();
-    string path = "Assets/Resources/Names.txt";
-    
-    string text;
+    private string path = "Assets/Resources/Names.txt";
+    private string text;
 
-    private void Start()
+    public void Awake()
     {
         LoadNames();
     }
-
 
     public void LoadNames()
     {
@@ -28,10 +32,28 @@ public class CharacterGenerator : MonoBehaviour {
         reader.Close();
     }
 
-
-
-    public void CreateCharacter()
+    public Character GenerateCharacter()
     {
+        GameObject Character = (GameObject)Instantiate(CharacterPrefab, TeamTransform.parent);
+        Character c = Character.GetComponent<Character>();
+        string n = Names[Random.Range(0, Names.Count - 1)];
+        string g = n.Substring(0, 1);
+        n = n.Substring(1, n.Length-1);
+        c.Name = n;
+        c.name = c.Name;
+        c.Gender = g.ToUpper();
+        c.GenerateAttributes();
 
+        return c;
+    }
+
+    public void GenerateCharacters(int count, Transform parent, List<Character> CharList)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Character c = GenerateCharacter();
+            c.transform.parent = parent;
+            CharList.Add(c);
+        }
     }
 }
