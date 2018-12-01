@@ -15,6 +15,5 @@ public class EncounterManager : MonoBehaviour {
             Encounters[i].Initialize();
         }
 	}
-	
 
 }

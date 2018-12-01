@@ -7,7 +7,8 @@ public class TeamManager : MonoBehaviour
     public List<Character> Team = new List<Character>();
     public List<Character> SacrificedMembers = new List<Character>();
     public List<Character> ReplacedMembers = new List<Character>();
-    public float TeamChemistry;
+    [SerializeField]
+    private float TeamChemistry;
     public int MaxAttributeValue = 13;
     public int MinAttributeValue = -3;
 
@@ -33,7 +34,8 @@ public class TeamManager : MonoBehaviour
 
         tc = tc / Team.Count;
         tc = tc / GetDifference(MaxAttributeValue, MinAttributeValue);
-        return 1f-(Mathf.Round(tc*100)/100);
+        TeamChemistry = 1f - (Mathf.Round(tc * 100) / 100);
+        return TeamChemistry;
     }
 
     public int GetDifference(int a, int b)
@@ -54,6 +56,16 @@ public class TeamManager : MonoBehaviour
                 NewCharacter.EnterTeam(i);
             }
         }
+    }
+
+    public int GetTeamAttributeValue(AttributeType type)
+    {
+        int v = 0;
+        for (int i = 0; i < Team.Count; i++)
+        {
+            v += Team[i].GetAttributeValue(type);
+        }
+        return v;
     }
 
 }

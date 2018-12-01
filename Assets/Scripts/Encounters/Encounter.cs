@@ -11,6 +11,8 @@ public class Encounter
     public string Decision;
     public string Sacrificed;
 
+    public List<Challenge> Challenges = new List<Challenge>();
+
     public string EndPositive;
     public List<string> Rewards = new List<string>();
     protected List<Trait> TraitsRewards = new List<Trait>();
