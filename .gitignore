@@ -13,6 +13,7 @@ ProjectSettings/ProjectVersion.txt
 # ===================================== #
 ExportedObj/
 obj/
+.vs/
 *.svd
 *.userprefs
 *.csproj
