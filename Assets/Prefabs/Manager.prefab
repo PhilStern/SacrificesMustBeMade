@@ -239,7 +239,69 @@ MonoBehaviour:
   CGenerator: {fileID: 114461609282395246}
   LManager: {fileID: 114770828813910892}
   TManager: {fileID: 114116504278009318}
-  Characters: []
+  Encounters:
+  - Name: Beware of the Lion
+    State: 0
+    Intro: 
+    Decision: 
+    Sacrificed: 
+    Challenges:
+    - Type: 0
+      DificultyCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      MinValue: 2
+      MaxValue: 10
+      TopTangent: 10
+    EndPositive: 
+    Rewards:
+    - 
+    EndNegative: 
+    Punishments:
+    - 
+  - Name: The Merchant
+    State: 0
+    Intro: 
+    Decision: 
+    Sacrificed: 
+    Challenges:
+    - Type: 1
+      DificultyCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      MinValue: 2
+      MaxValue: 10
+      TopTangent: 10
+    EndPositive: 
+    Rewards: []
+    EndNegative: 
+    Punishments: []
+  - Name: Over the Border
+    State: 0
+    Intro: 
+    Decision: 
+    Sacrificed: 
+    Challenges:
+    - Type: 2
+      DificultyCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+      MinValue: 2
+      MaxValue: 10
+      TopTangent: 10
+    EndPositive: 
+    Rewards: []
+    EndNegative: 
+    Punishments: []
   Traits:
   - Name: Athletic
     Rating: 0
@@ -277,6 +339,20 @@ MonoBehaviour:
     - Type: 2
       Value: -3
     Visibility: 0
+  - Name: Envious
+    Rating: 2
+    AttributeManipulators:
+    - Type: 1
+      Value: -2
+    Visibility: 0
+  - Name: Famous
+    Rating: 0
+    AttributeManipulators:
+    - Type: 2
+      Value: 2
+    - Type: 0
+      Value: 1
+    Visibility: 0
   Buffs: []
 --- !u!114 &114770828813910892
 MonoBehaviour:
@@ -290,41 +366,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
-  - Name: Safari
-    CurrentEncounter: 0
-    Encounters:
-    - Name: 
-      State: 0
-      Intro: 
-      Decision: 
-      Sacrificed: 
-      Challenges:
-      - Type: 0
-        DificultyCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 0
-        MinValue: 2
-        MaxValue: 8
-        TopTangent: 10
-      EndPositive: 
-      Rewards: []
-      EndNegative: 
-      Punishments: []
-  - Name: Jungle
+  - Name: The Forest
+    EncounterCount: 3
     CurrentEncounter: 0
     Encounters: []
-  - Name: Asylum
+  - Name: The Green Hills
+    EncounterCount: 6
+    CurrentEncounter: 0
+    Encounters: []
+  - Name: The Mountains
+    EncounterCount: 10
     CurrentEncounter: 0
     Encounters: []

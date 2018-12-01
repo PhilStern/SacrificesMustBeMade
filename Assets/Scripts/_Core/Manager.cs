@@ -17,8 +17,8 @@ public class Manager : MonoBehaviour {
     public LevelManager LManager;
     public TeamManager TManager;
 
-    [Header("Character References")]
-    public List<Character> Characters = new List<Character>();
+    [Header("Base Objects")]
+    public List<Encounter> Encounters = new List<Encounter>();
     public List<Trait> Traits = new List<Trait>();
     public List<Buff> Buffs = new List<Buff>();
 

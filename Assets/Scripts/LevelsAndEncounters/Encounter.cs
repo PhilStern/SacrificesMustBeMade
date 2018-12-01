@@ -23,6 +23,19 @@ public class Encounter
     protected List<Trait> TraitsPunishments = new List<Trait>();
     protected List<Buff> BuffPunishments = new List<Buff>();
 
+    public Encounter(Encounter e)
+    {
+        Name = e.Name;
+        Intro = e.Intro;
+        Decision = e.Decision;
+        Sacrificed = e.Sacrificed;
+        Challenges = new List<Challenge>(e.Challenges);
+        EndPositive = e.EndPositive;
+        Rewards = new List<string>(e.Rewards);
+        EndNegative = e.EndNegative;
+        Punishments = new List<string>(e.Punishments);
+    }
+
     public void Initialize()
     {
         for(int i = 0; i < Rewards.Count; i++)

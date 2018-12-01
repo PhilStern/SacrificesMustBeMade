@@ -7,15 +7,19 @@ public class Level
 {
     public string Name;
     [SerializeField]
+    private int EncounterCount;
+    [SerializeField]
     private int CurrentEncounter;
     public List<Encounter> Encounters = new List<Encounter>();
 
     public void Initialize()
     {
+        GenerateLevel(EncounterCount);
         for (int i = 0; i < Encounters.Count; i++)
         {
             Encounters[i].Initialize();
         }
+        
     }
 
     public void StartEncounter(int i)
@@ -33,5 +37,19 @@ public class Level
     public int GetCurrentEncounter()
     {
         return CurrentEncounter;
+    }
+
+    public void GenerateLevel(int encounterCount)
+    {
+        for (int i = 0; i < encounterCount; i++)
+        {
+            int j = Mathf.RoundToInt(Random.Range(-0.5f, Manager.Instance.Encounters.Count - 0.5f));
+            while (i!= 0 && Manager.Instance.Encounters[j].Name == Encounters[i-1].Name)
+            {
+                j = Mathf.RoundToInt(Random.Range(-0.5f, Manager.Instance.Encounters.Count - 0.5f));
+            }
+
+            Encounters.Add(new Encounter(Manager.Instance.Encounters[j]));
+        }
     }
 }
