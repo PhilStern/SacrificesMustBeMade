@@ -63,4 +63,35 @@ public class Encounter
             }
         }
     }
+
+    private void UpdateEncounter()
+    {
+        switch (State)
+        {
+            case EncounterState.Intro:
+
+            break;
+            case EncounterState.Decision:
+
+            break;
+            case EncounterState.Sacrificed:
+
+            break;
+            case EncounterState.Won:
+
+            break;
+            case EncounterState.Lost:
+
+            break;
+        }
+    }
+
+    public void SetEncounterState(EncounterState state)
+    {
+        if (State != state)
+        {
+            State = state;
+            UpdateEncounter();
+        }
+    }
 }

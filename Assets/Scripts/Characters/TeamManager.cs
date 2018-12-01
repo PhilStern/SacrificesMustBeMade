@@ -11,6 +11,7 @@ public class TeamManager : MonoBehaviour
     private float TeamChemistry;
     public int MaxAttributeValue = 13;
     public int MinAttributeValue = -3;
+    public int MaxChemistryModifier = 2;
 
     public void Initialize()
     {
@@ -65,7 +66,26 @@ public class TeamManager : MonoBehaviour
         {
             v += Team[i].GetAttributeValue(type);
         }
-        return v;
+        return Mathf.RoundToInt(v/Team.Count);
+    }
+
+    public int GetChemistryModifier()
+    {
+        return Mathf.RoundToInt((GetTeamChemistry() - 0.5f) * MaxChemistryModifier);
+    }
+
+    public bool TeamWinnsChallenge(Challenge challenge)
+    {
+        int teamValue = GetTeamAttributeValue(challenge.Type) + GetChemistryModifier();
+
+        if(challenge.ChallengeValue >= teamValue)
+        {
+            return false;
+        }
+        else
+        {
+            return true;   
+        }
     }
 
 }
