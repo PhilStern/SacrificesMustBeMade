@@ -66,6 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4593453332752020}
   - component: {fileID: 114461609282395246}
+  - component: {fileID: 114728078685077268}
   m_Layer: 0
   m_Name: CharacterGenerator
   m_TagString: Untagged
@@ -415,6 +416,21 @@ MonoBehaviour:
       Value: 1
     Visibility: 0
   Buffs: []
+--- !u!114 &114728078685077268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352860085498008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0007e911e47104a9b95d180735c340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headItems: {fileID: 114992515664246240, guid: d82ecc6c2ba1f65489bbee943d805763,
+    type: 2}
+  carryItems: {fileID: 114010873714429270, guid: 3d862d8da5d98474788714e306a8c792,
+    type: 2}
 --- !u!114 &114770828813910892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,14 +444,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Name: The Forest
+    Intro: 
     EncounterCount: 3
     CurrentEncounter: 0
     Encounters: []
   - Name: The Green Hills
+    Intro: 
     EncounterCount: 6
     CurrentEncounter: 0
     Encounters: []
   - Name: The Mountains
+    Intro: 
     EncounterCount: 10
     CurrentEncounter: 0
     Encounters: []

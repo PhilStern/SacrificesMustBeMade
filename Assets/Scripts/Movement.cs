@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
-    public enum Animation { Idle, Bobbing };
+    public enum CharacterAnimation { Idle, Bobbing };
+
+    public CharacterAnimation charAnim;
 
     float originalY;
 
