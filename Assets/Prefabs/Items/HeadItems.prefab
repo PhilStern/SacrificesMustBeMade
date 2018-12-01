@@ -29,7 +29,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1111335316549310
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -70,6 +70,21 @@ GameObject:
   - component: {fileID: 212787441594428206}
   m_Layer: 0
   m_Name: kleinezoepfe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1365636743752916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4604042733068448}
+  m_Layer: 0
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,9 +198,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111335316549310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.027, y: -0.6770001, z: 0}
-  m_LocalScale: {x: 1.2751111, y: 1.2751111, z: 1.2751111}
+  m_LocalPosition: {x: -0.053, y: -0.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 4604042733068448}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4604042733068448
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365636743752916}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.004, y: -0.008, z: 0}
+  m_LocalScale: {x: 1.2751111, y: 1.2751111, z: 1.2751111}
+  m_Children:
+  - {fileID: 4586616995308060}
   m_Father: {fileID: 4821905778781988}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -212,7 +241,7 @@ Transform:
   m_LocalPosition: {x: -7.784, y: 1.241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4586616995308060}
+  - {fileID: 4604042733068448}
   - {fileID: 4136529115768170}
   - {fileID: 4688752071591828}
   - {fileID: 4242549736936890}
@@ -233,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 1111335316549310}
+  - {fileID: 1365636743752916}
   - {fileID: 1201866471981600}
   - {fileID: 1308208694725120}
   - {fileID: 1437405135999268}
