@@ -11,17 +11,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1914305390661844}
   m_IsPrefabAsset: 1
---- !u!1 &1086539083570312
+--- !u!1 &1096492763902558
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4624870446930014}
-  - component: {fileID: 114914855201768750}
+  - component: {fileID: 4931630933668358}
+  - component: {fileID: 114770828813910892}
   m_Layer: 0
-  m_Name: EncounterManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4593453332752020}
-  - {fileID: 4624870446930014}
+  - {fileID: 4931630933668358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -147,19 +147,6 @@ Transform:
   m_Father: {fileID: 4766988665444620}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4624870446930014
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1086539083570312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4472829362596470}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4766988665444620
 Transform:
   m_ObjectHideFlags: 1
@@ -188,6 +175,19 @@ Transform:
   m_Father: {fileID: 4766988665444620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4931630933668358
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096492763902558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4472829362596470}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114116504278009318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,9 +200,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Team: []
+  ChooseNewMembers: []
+  SacrificedMembers: []
+  ReplacedMembers: []
   TeamChemistry: 0
   MaxAttributeValue: 13
   MinAttributeValue: -3
+  MaxChemistryModifier: 2
 --- !u!114 &114461609282395246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,8 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 0
+  LastState: 7
   CGenerator: {fileID: 114461609282395246}
-  EManager: {fileID: 114914855201768750}
+  LManager: {fileID: 114770828813910892}
   TManager: {fileID: 114116504278009318}
   Characters: []
   Traits:
@@ -241,53 +246,85 @@ MonoBehaviour:
     AttributeManipulators:
     - Type: 0
       Value: 3
+    Visibility: 0
   - Name: Smart
     Rating: 0
     AttributeManipulators:
     - Type: 1
       Value: 3
+    Visibility: 0
   - Name: Rich
     Rating: 0
     AttributeManipulators:
     - Type: 2
       Value: 3
+    Visibility: 0
   - Name: Fat
     Rating: 2
     AttributeManipulators:
     - Type: 0
       Value: -3
+    Visibility: 0
   - Name: Fearful
     Rating: 2
     AttributeManipulators:
     - Type: 1
       Value: -3
+    Visibility: 0
   - Name: Poor
     Rating: 2
     AttributeManipulators:
     - Type: 2
       Value: -3
+    Visibility: 0
   Buffs: []
---- !u!114 &114914855201768750
+--- !u!114 &114770828813910892
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1086539083570312}
+  m_GameObject: {fileID: 1096492763902558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b588d02b8045f941ba8cc93d779550e, type: 3}
+  m_Script: {fileID: 11500000, guid: 408429dc3c76f974bbd3906dc8cc27b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Encounters:
-  - Name: Lion
-    State: 0
-    Intro: Your group finds footsteps of a giant lion.
-    Decision: Sacrifice one of your groupmembers to sooth the lion. Or dare to fight
-      him.
-    Sacrificed: 
-    EndPositive: You've won. Collect your Rewards.
-    Rewards:
-    - Athletic
-    EndNegative: You've lost. The lion terrified you.
-    Punishments:
-    - Fearful
+  Levels:
+  - Name: Safari
+    CurrentEncounter: 0
+    Encounters:
+    - Name: 
+      State: 0
+      Intro: 
+      Decision: 
+      Sacrificed: 
+      Challenges:
+      - Type: 0
+        DificultyCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 0
+        MinValue: 2
+        MaxValue: 8
+        TopTangent: 10
+      EndPositive: 
+      Rewards: []
+      EndNegative: 
+      Punishments: []
+  - Name: Jungle
+    CurrentEncounter: 0
+    Encounters: []
+  - Name: Asylum
+    CurrentEncounter: 0
+    Encounters: []

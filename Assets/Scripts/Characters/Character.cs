@@ -30,6 +30,19 @@ public class Character : MonoBehaviour
         Buffs.Add(new Buff(b));
     }
 
+    public VisibilityState GetAttributeVisibility(AttributeType type)
+    {
+        for (int i = 0; i < Attributes.Count; i++)
+        {
+            if (Attributes[i].GetAttributeType() == type)
+            {
+                return Attributes[i].Visibility;
+
+            }
+        }
+        return VisibilityState.Hidden;
+    }
+
     public int GetAttributeValue(AttributeType type)
     {
         int a = 0;

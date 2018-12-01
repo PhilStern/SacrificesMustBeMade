@@ -8,7 +8,9 @@ public class Attribute{
     private string Name;
     [SerializeField]
     private AttributeType Type;
-    private int maxValue = 15;
+
+    public VisibilityState Visibility;
+
     [SerializeField]
     private int Value;
 

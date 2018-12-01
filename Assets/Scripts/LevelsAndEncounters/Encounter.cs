@@ -62,6 +62,11 @@ public class Encounter
 
             }
         }
+
+        for (int i = 0; i < Challenges.Count; i++)
+        {
+            Challenges[i].Initialize();
+        }
     }
 
     private void UpdateEncounter()

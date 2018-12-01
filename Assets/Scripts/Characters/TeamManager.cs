@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeamManager : MonoBehaviour
 {
     public List<Character> Team = new List<Character>();
+    public List<Character> ChooseNewMembers = new List<Character>();
     public List<Character> SacrificedMembers = new List<Character>();
     public List<Character> ReplacedMembers = new List<Character>();
     [SerializeField]

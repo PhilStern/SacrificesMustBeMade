@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Trait : CharacterManipulator
 {
+    public VisibilityState Visibility;
 
     public Trait(string name, Rating rating, List<AttributeManipulator> attributeManipulators)
     {

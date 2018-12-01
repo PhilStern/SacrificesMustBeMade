@@ -49,6 +49,7 @@ public class CharacterGenerator : MonoBehaviour {
 
     public void GenerateCharacters(int count, Transform parent, List<Character> CharList)
     {
+        CharList.Clear();
         for (int i = 0; i < count; i++)
         {
             Character c = GenerateCharacter();
