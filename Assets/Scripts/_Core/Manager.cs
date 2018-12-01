@@ -16,6 +16,7 @@ public class Manager : MonoBehaviour {
     public CharacterGenerator CGenerator;
     public LevelManager LManager;
     public TeamManager TManager;
+    public Mouse Interaction;
 
     [Header("Base Objects")]
     public List<Encounter> Encounters = new List<Encounter>();
