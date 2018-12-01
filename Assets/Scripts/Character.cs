@@ -52,5 +52,21 @@ public class Character : MonoBehaviour
         return a;
     }
 
+    public void LeaveTeam()
+    {
+        Manager.Instance.TManager.ReplacedMembers.Add(this);
+    }
+
+    public void EnterTeam(int position)
+    {
+
+    }
+
+    public void Sacrifice()
+    {
+        Manager.Instance.TManager.SacrificedMembers.Add(this);
+        Manager.Instance.TManager.Team.Remove(this);
+    }
+
 
 }

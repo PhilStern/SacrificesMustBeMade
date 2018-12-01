@@ -5,6 +5,8 @@ using UnityEngine;
 public class TeamManager : MonoBehaviour
 {
     public List<Character> Team = new List<Character>();
+    public List<Character> SacrificedMembers = new List<Character>();
+    public List<Character> ReplacedMembers = new List<Character>();
     public float TeamChemistry;
     public int MaxAttributeValue = 13;
     public int MinAttributeValue = -3;
@@ -40,4 +42,18 @@ public class TeamManager : MonoBehaviour
 
         return r;
     }
+
+    public void SwitchTeamCharacter(Character OldCharacter, Character NewCharacter)
+    {
+        for (int i = 0; i < Team.Count; i++)
+        {
+            if (Team[i] == OldCharacter)
+            {
+                OldCharacter.LeaveTeam();
+                Team[i] = NewCharacter;
+                NewCharacter.EnterTeam(i);
+            }
+        }
+    }
+
 }
