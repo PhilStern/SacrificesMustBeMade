@@ -27,6 +27,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1143201315666296
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4953109858641026}
+  m_Layer: 0
+  m_Name: ReplacedCharacters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1341720495642364
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4973836559552772}
+  m_Layer: 0
+  m_Name: SacrificedCharacters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1352860085498008
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +189,8 @@ Transform:
   m_Children:
   - {fileID: 4777177302169050}
   - {fileID: 4594545422067410}
+  - {fileID: 4953109858641026}
+  - {fileID: 4973836559552772}
   m_Father: {fileID: 4593453332752020}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,6 +219,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4472829362596470}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4953109858641026
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143201315666296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4766988665444620}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4973836559552772
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341720495642364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4766988665444620}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114116504278009318
 MonoBehaviour:
@@ -220,6 +278,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TeamTransform: {fileID: 4777177302169050}
   ChooseCharacterTransform: {fileID: 4594545422067410}
+  SacrificedCharactersTransform: {fileID: 4973836559552772}
+  ReplacedCharactersTransform: {fileID: 4953109858641026}
+  CharacterStartTraitCount: 2
   CharacterPrefab: {fileID: 1328602476551432, guid: 2ad67bfe2b261c64eba283ee7b9e9e5b,
     type: 2}
   Names: []

@@ -9,7 +9,11 @@ public class CharacterGenerator : MonoBehaviour {
 
     public Transform TeamTransform;
     public Transform ChooseCharacterTransform;
+    public Transform SacrificedCharactersTransform;
+    public Transform ReplacedCharactersTransform;
 
+    [SerializeField]
+    private int CharacterStartTraitCount;
     [SerializeField]
     private GameObject CharacterPrefab;
     [SerializeField]
@@ -42,6 +46,7 @@ public class CharacterGenerator : MonoBehaviour {
         c.Name = n;
         c.name = c.Name;
         c.Gender = g.ToUpper();
+        c.StartTraitCount = CharacterStartTraitCount;
         c.GenerateAttributes();
 
         return c;
