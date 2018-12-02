@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
 
     public List<Level> Levels = new List<Level>();
-    private int currentLevel = 1;
+    private int currentLevel = 0;
     
     // Use this for initialization
     public void Initialize()
@@ -18,14 +18,14 @@ public class LevelManager : MonoBehaviour {
 
     public void StartLevel(int index)
     {
-        currentLevel = index+1;
+        currentLevel = index;
         Levels[index].StartEncounter(0);
     }
 
     public void NextLevel()
     {
         currentLevel++;
-        Levels[currentLevel-1].StartEncounter(0);
+        Levels[currentLevel].StartEncounter(0);
     }
 
     public int GetLevel()
@@ -40,11 +40,11 @@ public class LevelManager : MonoBehaviour {
         {
             for (int j = 0; j < Levels[i].Encounters.Count; j++)
             {
-                if (i < currentLevel - 1)
+                if (i < currentLevel)
                 {
                     c++;
                 }
-                else if (i == currentLevel - 1 && j < currentEncounter)
+                else if (i == currentLevel && j < currentEncounter)
                 {
                     c++;
                 }

@@ -55,6 +55,8 @@ public class TeamManager : MonoBehaviour
             {
                 OldCharacter.LeaveTeam();
                 Team[i] = NewCharacter;
+                NewCharacter.transform.position = OldCharacter.CharacterPosition;
+                NewCharacter.CharacterPosition = NewCharacter.transform.position;
                 NewCharacter.EnterTeam(i);
             }
         }
@@ -87,6 +89,19 @@ public class TeamManager : MonoBehaviour
         {
             return true;   
         }
+    }
+
+    public int GetCharacterPositionInTeam(Character character)
+    {
+        int p = 0;
+        for(int i = 0; i < Team.Count; i++)
+        {
+            if (Team[i] == character)
+            {
+                p = i;
+            }
+        }
+        return p;
     }
 
 }

@@ -11,7 +11,6 @@ public class OutfitGenerator : MonoBehaviour
     void Start()
     {
         GenerateOutfit();
-
     }
 
     // Update is called once per frame
@@ -32,12 +31,8 @@ public class OutfitGenerator : MonoBehaviour
         head.transform.parent = go.transform;
         go.transform.parent = gameObject.transform;
         
-
         var carryitems = cAssets.carryItems.items;
         var carry = Instantiate(carryitems[Random.Range(0, carryitems.Count)], carryRefPoint.position, Quaternion.identity);
         carry.transform.parent = gameObject.transform;
-
-
-
     }
 }

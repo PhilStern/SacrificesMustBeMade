@@ -8,11 +8,20 @@ public class Character : MonoBehaviour
     public string Name;
     public string Gender;
     public int StartTraitCount;
+    
     public List<Attribute> Attributes = new List<Attribute>();
     [SerializeField]
     protected List<Trait> Traits = new List<Trait>();
     [SerializeField]
     protected List<Buff> Buffs = new List<Buff>();
+
+    [Header("Interaction")]
+    public Dragable Drag;
+    public Targetable Target;
+    public Rigidbody2D RB;
+    public BoxCollider2D BC;
+    public SpriteRenderer SR;
+    public Vector3 CharacterPosition;
 
     public void GenerateAttributes()
     {
@@ -78,13 +87,17 @@ public class Character : MonoBehaviour
     public void LeaveTeam()
     {
         Manager.Instance.TManager.ReplacedMembers.Add(this);
+        Target.Active = false;
+        transform.position -= new Vector3 (0f,12f,0f);
         this.transform.parent = Manager.Instance.CGenerator.ReplacedCharactersTransform;
     }
 
     public void EnterTeam(int position)
     {
         Manager.Instance.TManager.ChooseNewMembers.Remove(this);
-        this.transform.parent = Manager.Instance.CGenerator.ChooseCharacterTransform;
+        Drag.Active = false;
+        Target.Active = true;
+        this.transform.parent = Manager.Instance.CGenerator.TeamTransform;
     }
 
     public void Sacrifice()

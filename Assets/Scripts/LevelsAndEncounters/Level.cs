@@ -7,6 +7,7 @@ public class Level
 {
     public string Name;
     public string Intro;
+    public int MaxTeamMembers;
     [SerializeField]
     private int EncounterCount;
     [SerializeField]
@@ -25,14 +26,14 @@ public class Level
 
     public void StartEncounter(int i)
     {
-        CurrentEncounter = i+1;
-        Encounters[CurrentEncounter-1].SetEncounterState(EncounterState.Intro);
+        CurrentEncounter = i;
+        Encounters[CurrentEncounter].SetEncounterState(EncounterState.Intro);
     }
 
     public void NextEncounter()
     {
         CurrentEncounter++;
-        Encounters[CurrentEncounter-1].SetEncounterState(EncounterState.Intro);
+        Encounters[CurrentEncounter].SetEncounterState(EncounterState.Intro);
     }
 
     public int GetCurrentEncounter()

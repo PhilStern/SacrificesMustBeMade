@@ -7,5 +7,4 @@ public class CharacterAssets : MonoBehaviour {
     public HeadItems headItems;
     public CarryItems carryItems;
 
-
 }
